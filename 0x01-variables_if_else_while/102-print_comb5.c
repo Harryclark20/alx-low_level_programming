@@ -1,37 +1,42 @@
 #include <stdio.h>
-
 /**
- * main - prints all possible combinations of two two-digit numbers
- *
- * Return: Always 0 (Success)
+ * main - main block
+ * Description: Print all possible combinations of two two-digit numbers.
+ * Return: All good
  */
 int main(void)
 {
-    int num1, num2;
+	int i, j;
+	int a, b, c, d;
 
-    for (num1 = 0; num1 < 100; num1++)
-    {
-        for (num2 = num1; num2 < 100; num2++)
-        {
-            /* Print the first two-digit number */
-            putchar((num1 / 10) + '0');
-            putchar((num1 % 10) + '0');
-            putchar(' ');
+	for (i = 0; i < 100; i++)
+	{
+		a = i / 10; /* doubles fnum */
+		b = i % 10; /* singles fnum */
 
-            /* Print the second two-digit number */
-            putchar((num2 / 10) + '0');
-            putchar((num2 % 10) + '0');
+		for (j = 0; j < 100; j++)
+		{
+			c = j / 10; /* doubles snum */
+			d = j % 10; /* singles snum */
 
-            /* Check if we've reached the last combination */
-            if (num1 != 99 || num2 != 99)
-            {
-                putchar(',');
-                putchar(' ');
-            }
-        }
-    }
+			if (a < c || (a == c && b < d))
+			{
+				putchar(a + '0');
+				putchar(b + '0');
+				putchar(32);
+				putchar(c + '0');
+				putchar(d + '0');
 
-    putchar('\n');
-    return (0);
+				if (!(a == 9 && b == 8))
+				{
+					putchar(44);
+					putchar(32);
+				}
+			}
+		}
+	}
+	putchar(10);
+
+	return (0);
 }
 
