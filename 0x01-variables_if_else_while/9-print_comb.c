@@ -1,31 +1,24 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - main block
+ * Description: Print all possible combinations fo single-digit numbers.
+ * Return: 0
  */
 int main(void)
 {
-	int num1, num2;
+	int i = 0;
 
-	for (num1 = 0; num1 < 10; num1++)
+	while (i < 10)
 	{
-		for (num2 = num1; num2 < 10; num2++)
+		putchar(i + '0');
+		if (i < 9)
 		{
-			int comma = ((num1 == 9) && (num2 == 9)) ? '\n' : ',';
-
-			putchar((num1 % 10) + '0');
-			putchar((num2 % 10) + '0');
-			putchar(comma);
-
-			if (num1 != 8 || num2 != 9)
-			{
-				putchar(' ');
-			}
+			putchar(44);
+			putchar(32);
 		}
+		i++;
 	}
+	putchar('\n');
 
 	return (0);
 }
-
